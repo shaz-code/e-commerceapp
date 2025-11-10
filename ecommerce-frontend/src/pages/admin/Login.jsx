@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { loginSuccess } from '../../store/authSlice'  // FIXED: ../../
+import { loginSuccess } from '../../store/authSlice'
 import axios from 'axios'
 
 const AdminLogin = () => {
@@ -14,7 +14,7 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/auth/login', { email, password })
+      const res = await axios.post('/api/admin/login', { email, password })
       dispatch(loginSuccess(res.data))
       navigate('/admin')
     } catch (err) {
